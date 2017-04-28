@@ -1,0 +1,38 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/fenge1" />
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/music_content_empty_view_text_color"
+        android:text="@string/text_empty_view" />
+
+<!--     <LinearLayout -->
+<!--         android:id="@+id/footer" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_gravity="bottom" -->
+<!--         android:gravity="center" -->
+<!--         android:visibility="gone" > -->
+
+<!--         <ProgressBar -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_marginRight="10dp" /> -->
+
+<!--         <TextView -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="@string/text_loading" /> -->
+<!--     </LinearLayout> -->
+
+</FrameLayout>

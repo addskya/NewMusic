@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="music_id">
+        <item>"63270700093"</item>
+        <item>"63270700092"</item>
+        <item>"63270700091"</item>
+        <item>"63270700090"</item>
+        <item>"63270700089"</item>
+        <item>"63270700088"</item>
+        <item>"63270700087"</item>
+        <item>"63270700086"</item>
+        <item>"63270700085"</item>
+        <item>"63270700084"</item>
+        <item>"63270700083"</item>
+        <item>"63270700082"</item>
+        <item>"63270700081"</item>
+        <item>"63270700080"</item>
+        <item>"63270700079"</item>
+        <item>"63270700078"</item>
+        <item>"63270700077"</item>
+        <item>"63270700075"</item>
+        <item>"63270700073"</item>
+        <item>"63270700072"</item>
+        <item>"63270700071"</item>
+        <item>"63270700070"</item>
+        <item>"63270700069"</item>
+        <item>"63270700068"</item>
+        <item>"63270700067"</item>
+        <item>"63270700066"</item>
+        <item>"63270700065"</item>
+        <item>"63270700064"</item>
+        <item>"63270700063"</item>
+        <item>"63270700062"</item>
+        <item>"63270700061"</item>
+        <item>"63270700059"</item>
+        <item>"63270700058"</item>
+        <item>"63270700057"</item>
+        <item>"63270700056"</item>
+        <item>"63270700053"</item>
+        <item>"63270700052"</item>
+        <item>"63270700050"</item>
+        <item>"63270700048"</item>
+        <item>"63270700047"</item>
+        <item>"63270700046"</item>
+        <item>"63270700045"</item>
+        <item>"63270700043"</item>
+        <item>"63270700040"</item>
+        <item>"63270700039"</item>
+        <item>"63270700038"</item>
+        <item>"63270700037"</item>
+        <item>"63270700036"</item>
+        <item>"63270700035"</item>
+        <item>"63270700034"</item>
+        <item>"63270700033"</item>
+        <item>"63270700032"</item>
+        <item>"63270700031"</item>
+        <item>"63270700030"</item>
+        <item>"63270700029"</item>
+        <item>"63270700027"</item>
+        <item>"63270700026"</item>
+        <item>"63270700025"</item>
+        <item>"63270700022"</item>
+        <item>"63270700021"</item>
+        <item>"63270700020"</item>
+        <item>"63270700019"</item>
+        <item>"63270700018"</item>
+        <item>"63270700017"</item>
+        <item>"63270700015"</item>
+        <item>"63270700014"</item>
+        <item>"63270700013"</item>
+        <item>"63270700012"</item>
+        <item>"63270700010"</item>
+        <item>"63270700009"</item>
+        <item>"63270700007"</item>
+        <item>"63270700006"</item>
+        <item>"63270700004"</item>
+        <item>"63270700001"</item>
+    </string-array>
+
+    <string-array name="music_name">
+        <item>"在梦中 "</item>
+        <item>"终于 "</item>
+        <item>"相拥美梦圆 "</item>
+        <item>"暗恋季节 "</item>
+        <item>"陪我醉一回 "</item>
+        <item>"如果今生 "</item>
+        <item>"谁的无尾熊 "</item>
+        <item>"我不在你世界里 "</item>
+        <item>"夜深了 "</item>
+        <item>"一叶孤舟 "</item>
+        <item>"在你的身旁 "</item>
+        <item>"花开过后 "</item>
+        <item>"舍得放开 "</item>
+        <item>"枯萎了又绽放 "</item>
+        <item>"美丽童话 "</item>
+        <item>"爱在悲伤里面成长 "</item>
+        <item>"孤独的舞步 "</item>
+        <item>"梦醒来 "</item>
+        <item>"女人的烦恼 "</item>
+        <item>"心如明镜 "</item>
+        <item>"有事请留言 "</item>
+        <item>"爱情不用说出口 "</item>
+        <item>"爱情是一种享受 "</item>
+        <item>"伴随你冬与夏 "</item>
+        <item>"你到底想要什么味 "</item>
+        <item>"人世多愁 "</item>
+        <item>"习惯沉默 "</item>
+        <item>"重归于好 "</item>
+        <item>"人生旅途 "</item>
+        <item>"伤心的季节 "</item>
+        <item>"离别的深秋 "</item>
+        <item>"白色窗台 "</item>
+        <item>"冰冷的墙 "</item>
+        <item>"不要再挣扎 "</item>
+        <item>"曾经我的爱 "</item>
+        <item>"寂寞从未改变 "</item>
+        <item>"尽情释放 "</item>
+        <item>"不死心的爱 "</item>
+        <item>"吵醒这个世界 "</item>
+        <item>"等你说再见 "</item>
+        <item>"花雪月 "</item>
+        <item>"快乐的肖邦 "</item>
+        <item>"明天的你不再是此前 "</item>
+        <item>"年复一年 "</item>
+        <item>"期待 "</item>
+        <item>"牵挂 "</item>
+        <item>"青春 "</item>
+        <item>"轻轻的为你歌唱 "</item>
+        <item>"清醒 "</item>
+        <item>"秋天的怀念 "</item>
+        <item>"如果能再给我一次爱你的机会 "</item>
+        <item>"童年唱的歌 "</item>
+        <item>"为你放弃 "</item>
+        <item>"我爱的你不爱我 "</item>
+        <item>"我爱你 "</item>
+        <item>"我不为你哭 "</item>
+        <item>"我的爱在千里 "</item>
+        <item>"我流泪的眼 "</item>
+        <item>"无谓的话 "</item>
+        <item>"下雪的深夜 "</item>
+        <item>"下雨的窗口 "</item>
+        <item>"幸福就在这里 "</item>
+        <item>"一个人的街头 "</item>
+        <item>"一个人的祝福 "</item>
+        <item>"遗忘的过去 "</item>
+        <item>"永远不回来的温柔 "</item>
+        <item>"永远的情人 "</item>
+        <item>"勇敢 "</item>
+        <item>"雨天不懂避雨 "</item>
+        <item>"雨下不停 "</item>
+        <item>"远行 "</item>
+        <item>"战役 "</item>
+        <item>"只是陌生人 "</item>
+        <item>"最初和最后 "</item>
+    </string-array>
+
+    <string-array name="music_author">
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"何静"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+        <item>"段敏"</item>
+    </string-array>
+</resources>

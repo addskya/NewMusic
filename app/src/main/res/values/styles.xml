@@ -1,0 +1,16 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="CustomListView" parent="android:Widget.ListView">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="OptionDialog" parent="@android:style/Theme.Holo.Dialog">
+<!--         <item name="android:windowFrame">@null</item> -->
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+<!--         <item name="android:windowNoTitle">true</item> -->
+        <item name="android:background">@color/dialog_option_background</item>
+        <item name="android:windowBackground">@color/dialog_option_background</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>

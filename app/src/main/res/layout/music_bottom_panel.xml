@@ -1,0 +1,89 @@
+<com.lz.music.ui.MusicPlayerPanel xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/music_bottom_panel_background" >
+
+    <ImageView
+        android:id="@+id/music_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:contentDescription="@string/image_view_content_description"
+        android:padding="2dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/tu10" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/xiayishou" />
+
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/btn_next"
+        android:background="@drawable/play" />
+
+    <Button
+        android:id="@+id/btn_previous"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/btn_play"
+        android:background="@drawable/shangyishou" />
+
+    <TextView
+        android:id="@+id/tv_name_singer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@id/btn_previous"
+        android:layout_toRightOf="@id/music_icon"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/text_unknown"
+        android:textColor="@color/music_bottom_panel_name_singer_text_color" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name_singer"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@id/btn_previous"
+        android:layout_toRightOf="@id/music_icon"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/text_time"
+        android:textColor="@color/music_bottom_panel_time_text_color"
+        android:textIsSelectable="false" />
+
+    <com.lz.music.ui.CustomSeekBar
+        android:id="@+id/progress_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_time"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/music_icon"
+        android:background="@drawable/bofangtiao"
+        android:maxHeight="6dp"
+        android:minHeight="6dp"
+        android:progressDrawable="@drawable/seekbar_style_2"
+        android:thumb="@drawable/bofangdian"
+        android:thumbOffset="5dp" />
+
+</com.lz.music.ui.MusicPlayerPanel>

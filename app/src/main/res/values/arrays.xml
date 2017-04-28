@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="music_options">
+        <item>收藏</item>
+        <item>设为振铃</item>
+        <item>设为彩铃</item>
+        <!-- <item>彩铃包月</item>
+        <item>CP专属包月</item> -->
+        <item>下载</item>
+    </string-array>
+    
+    <string-array name="music_options_2">
+        <item>设为振铃</item>
+        <item>设为彩铃</item>
+        <!-- <item>彩铃包月</item>
+        <item>CP专属包月</item> -->
+        <item>下载</item>
+    </string-array>
+</resources>

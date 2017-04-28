@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/navigation_background" >
+
+        <Button
+            android:id="@+id/btn_original"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_background"
+            android:onClick="navigateOriginal"
+            android:textColor="@color/music_main_button_original_text_color"
+            android:text="@string/text_original_list" />
+
+        <Button
+            android:id="@+id/btn_favorites"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="navigateFavorites"
+            android:textColor="@color/music_main_button_favorites_text_color"
+            android:text="@string/text_favorites" />
+
+        <Button
+            android:id="@+id/btn_search"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="navigateSearch"
+            android:textColor="@color/music_main_button_search_text_color"
+            android:text="@string/text_search" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </android.support.v4.view.ViewPager>
+
+    <include
+        android:id="@+id/player_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        layout="@layout/music_bottom_panel" />
+
+</LinearLayout>

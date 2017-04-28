@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 15
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.lz.music.kuyuehui"
+        minSdkVersion 15
+        targetSdkVersion 18
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    productFlavors {
+        am {
+            applicationId = "com.lz.music.kuyuehui"
+            buildConfigField "String", "AUTHORITY", "\"music_app_kuyuehui\""
+        }
+
+        bsm {
+            applicationId = "com.lz.music"
+            buildConfigField "String", "AUTHORITY", "\"music_app_music\""
+        }
+
+        fx {
+            applicationId = "com.lz.music.fengxing"
+            buildConfigField "String", "AUTHORITY", "\"music_app_fengxing\""
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
+    compile files('libs/openmusicsdk_3.0.3.jar')
+    compile files('libs/MiguSDK3.0_200.jar')
+}

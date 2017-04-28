@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_background" >
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn_background"
+            android:contentDescription="@string/image_view_content_description"
+            android:onClick="onClickBack"
+            android:scaleType="fitXY"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/tv_chart_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/back"
+            android:textColor="@color/music_list_chart_name_text_color"
+            android:textIsSelectable="false"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/back"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/image_view_content_description"
+            android:scaleType="fitXY"
+            android:src="@drawable/fenge4" />
+    </RelativeLayout>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        layout="@layout/music_content" />
+
+    <include
+        android:id="@+id/player_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/music_bottom_panel" />
+
+</LinearLayout>

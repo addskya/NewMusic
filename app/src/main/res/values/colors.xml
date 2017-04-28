@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="deep_red">#FF4040</color>
+    <color name="gray">#36648B</color>
+    <color name="deep_gray">#878787</color>
+
+    <color name="music_bottom_panel_background">@color/gray</color>
+    <color name="music_bottom_panel_name_singer_text_color">@color/white</color>
+    <color name="music_bottom_panel_time_text_color">@color/white</color>
+    
+    <color name="music_content_empty_view_text_color">@color/white</color>
+
+    <color name="music_item_button_more_text_color">@color/deep_gray</color>
+    <color name="music_item_music_name_text_color">@color/white</color>
+    <color name="music_item_singer_text_color">@color/white</color>
+    <color name="music_item_index_text_color">@color/deep_red</color>
+    
+    <color name="music_list_chart_name_text_color">@color/white</color>
+    
+    <color name="music_main_button_original_text_color">@color/white</color>
+    <color name="music_main_button_favorites_text_color">@color/white</color>
+    <color name="music_main_button_search_text_color">@color/white</color>
+
+    <color name="music_original_item_chart_name_text_color">@color/white</color>
+    <color name="music_search_edittext_text_color">@color/black</color>
+
+    <color name="seekbar_style_2_center_color">@color/deep_red</color>
+    <color name="seekbar_style_2_end_color">@color/deep_red</color>
+    <color name="seekbar_style_2_start_color">@color/deep_red</color>
+    
+    <color name="tab_selected_text_color">@color/deep_red</color>
+    <color name="tab_unselected_text_color">@color/white</color>
+
+    <color name="dialog_option_background">@color/white</color>
+    <color name="dialog_option_text_color">@color/deep_gray</color>
+    <color name="dialog_option_title_text_color">@color/black</color>
+</resources>

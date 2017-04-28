@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">""</string>
+    <string name="app_id">""</string>
+    <string name="service_id">""</string>
+    <string name="chcode">""</string>
+    <string name="authorities">""</string>
+
+    <string name="text_music_name">歌曲名</string>
+    <string name="text_singer_name">歌手名</string>
+    <string name="text_previous">上一首</string>
+    <string name="text_play">播放</string>
+    <string name="text_pause">暂停</string>
+    <string name="text_next">下一首</string>
+
+    <string name="text_original_list">榜单</string>
+    <string name="text_exchange">兑换</string>
+    <string name="text_favorites">我的收藏</string>
+    <string name="text_search">搜索</string>
+
+    <string name="text_item_favorites">收藏</string>
+    <string name="text_item_ring">设为振铃</string>
+    <string name="text_item_ringtone">设为彩铃</string>
+    <string name="text_item_download">下载</string>
+    <string name="text_item_more">更多</string>
+    <string name="text_empty_view">好音乐马上就来</string>
+    <string name="text_loading">加载中</string>
+    <string name="text_unknown">未知</string>
+    <string name="text_time">00:00 | 00:00</string>
+
+    <string name="text_banners">广告条</string>
+    <string name="not_china_mobile_sim">请插入中国移动的手机卡</string>
+    <string name="init_failed">初始化失败</string>
+    <string name="set_vibrate_ring_success">设置来电铃声成功</string>
+    <string name="set_vibrate_ring_failed">设置来电铃声失败</string>
+    <string name="search_failed">没有找到相关的歌曲</string>
+
+    <string name="image_view_content_description">TODO</string>
+
+    <string name="original_header_chart_code_cp">"cp_month"</string>
+    <string name="original_header_chart_code_list">"local_music_list"</string>
+
+</resources>

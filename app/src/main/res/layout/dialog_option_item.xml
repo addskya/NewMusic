@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="UseCompoundDrawables" >
+
+    <ImageView
+        android:id="@+id/option_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/image_view_content_description" />
+
+    <TextView
+        android:id="@+id/option_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/dialog_option_text_color"
+        android:textIsSelectable="false"
+        android:textSize="20sp" />
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">"酷乐汇"</string>
+    <string name="app_id">"appid:006529964598562166"</string>
+    <string name="service_id">"600906020000005072"</string>
+    <string name="chcode">"chcode:014A159"</string>
+    <string name="authorities">"music_app_kuyuehui"</string>
+
+</resources>
