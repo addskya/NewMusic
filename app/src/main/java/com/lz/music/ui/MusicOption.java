@@ -4,14 +4,17 @@ package com.lz.music.ui;
 import java.io.File;
 
 import com.cmsc.cmmusic.common.CMMusicCallback;
+import com.cmsc.cmmusic.common.CPManagerInterface;
 import com.cmsc.cmmusic.common.FullSongManagerInterface;
 import com.cmsc.cmmusic.common.RingbackManagerInterface;
 import com.cmsc.cmmusic.common.VibrateRingManagerInterface;
 import com.cmsc.cmmusic.common.data.MusicInfo;
 import com.cmsc.cmmusic.common.data.OrderResult;
+import com.cmsc.cmmusic.common.data.QueryResult;
 import com.lz.music.MusicApp;
 import com.lz.music.database.MusicContent.Music;
 import com.lz.music.download.DownloadMusic;
+import com.lz.music.kuyuehui.R;
 import com.lz.music.util.MusicUtil;
 
 import android.content.ContentValues;
@@ -19,6 +22,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -61,7 +65,7 @@ public class MusicOption {
             // buyCPMonth();
             // break;
             case 3:
-                downloadMusic();
+                checkCpMonthAndDownloadMusic();
                 break;
         }
     }
@@ -148,31 +152,63 @@ public class MusicOption {
     // }).start();
     // }
     //
-    // private void buyCPMonth() {
-    // new Thread(new Runnable() {
-    // @Override
-    // public void run() {
-    // CPManagerInterface.openCPMonth(mContext,
-    // mContext.getString(R.string.service_id), new CMMusicCallback<Result>() {
-    // @Override
-    // public void operationResult(Result result) {
-    // if (result != null) {
-    // Message message = Message.obtain();
-    // message.what = MESSAGE_DOWNLOAD_CP_MONTH;
-    // if (result.getResCode() != null && result.getResCode().equals("000000"))
-    // {
-    // message.arg1 = 0;
-    // } else {
-    // message.arg1 = 1;
-    // message.obj = result.getResMsg() == null ? "CP包月失败" : result.getResMsg();
-    // }
-    // mHandler.sendMessage(message);
-    // }
-    // }
-    // });
-    // }
-    // }).start();
-    // }
+    private void buyCPMonth() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                CPManagerInterface.openCPMonth(mContext,
+                        mContext.getString(R.string.service_id), null, new CMMusicCallback<OrderResult>() {
+                            @Override
+                            public void operationResult(OrderResult result) {
+                                if (result != null) {
+                                    Message message = Message.obtain();
+                                    message.what = MESSAGE_DOWNLOAD_CP_MONTH;
+                                    if (result.getResCode() != null && result.getResCode().equals("000000")) {
+                                        message.arg1 = 0;
+                                    } else {
+                                        message.arg1 = 1;
+                                        message.obj = result.getResMsg() == null ? "CP包月失败" : result.getResMsg();
+                                    }
+                                    mHandler.sendMessage(message);
+                                }
+                            }
+                        });
+            }
+        }).start();
+    }
+
+    private void checkCpMonthAndDownloadMusic() {
+        String[] headers = mContext.getResources().getStringArray(R.array.original_header_code);
+        String cpMonth = mContext.getResources().getString(R.string.original_header_chart_code_cp);
+        boolean hasCpMonth = false;
+        if (headers != null && headers.length > 0) {
+            for (String header : headers) {
+                if (!TextUtils.isEmpty(cpMonth) && cpMonth.equalsIgnoreCase(header)) {
+                    hasCpMonth = true;
+                    break;
+                }
+            }
+        }
+
+        if (hasCpMonth) {
+            new Thread() {
+                @Override
+                public void run() {
+                    QueryResult result = CPManagerInterface.queryCPMonth(mContext,
+                            mContext.getString(R.string.service_id));
+                    Log.i("OrangeDebug", "QueryResult:" + result);
+                    if (result.getResCode() != null && result.getResCode().equals("000000")) {
+                        downloadMusic();
+                    } else {
+                        buyCPMonth();
+                    }
+                }
+            }.start();
+
+        } else {
+            downloadMusic();
+        }
+    }
 
     private void downloadMusic() {
         new Thread(new Runnable() {
