@@ -10,9 +10,19 @@ android {
         targetSdkVersion 18
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'music'
+            keyPassword 'newmusic'
+            storePassword 'newmusic'
+            storeFile file("newmusic_keystore")
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
