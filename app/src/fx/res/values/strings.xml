@@ -4,8 +4,8 @@
     <string name="app_name">"风行音乐播放器"</string>
     <string name="app_id">"appid:009535830815714163"</string>
 
-    <!-- 600927020000005104 -->
-    <string name="service_id">"698039020020005104"</string>
+    <!-- Origin 600927020000005104  New :698039020020005104-->
+    <string name="service_id">"600927020000005104"</string>
     <string name="chcode">"chcode:014A158"</string>
     <string name="authorities">"music_app_fengxing"</string>
 

@@ -15,8 +15,11 @@ import com.cmsc.cmmusic.init.InitCmmInterface;
 import com.lz.music.kuyuehui.R;
 
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -49,8 +52,34 @@ public class OriginalListFragment extends ListFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.music_original, null);
         mInfo = (TextView) view.findViewById(R.id.empty_view);
+        view.findViewById(R.id.banners)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        gotoMiGu();
+                    }
+                });
         return view;
     }
+
+    private void gotoMiGu() {
+        Intent intent = new Intent();
+        String pkgName = getString(R.string.migu_pkg_name);
+        String clsName = getString(R.string.migu_cls_name);
+        ComponentName cn = new ComponentName(pkgName, clsName);
+        intent.setComponent(cn);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            String miguUrl = getString(R.string.url_migu_index);
+            Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+            viewIntent.setData(Uri.parse(miguUrl));
+            startActivity(viewIntent);
+        }
+    }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

@@ -41,4 +41,8 @@
     <string name="original_header_chart_code_cp">"cp_month"</string>
     <string name="original_header_chart_code_list">"local_music_list"</string>
 
+    <string name="migu_pkg_name">"cmccwm.mobilemusic"</string>
+    <string name="migu_cls_name">"cmccwm.mobilemusic.ui.activity.PreSplashActivityMigu"</string>
+    <string name="url_migu_index">"http://wm.10086.cn/view/wap/musicindex.do?cType=sst_client&amp;nodeId=7638&amp;cid=014002C"</string>
+
 </resources>
