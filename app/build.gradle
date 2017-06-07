@@ -42,6 +42,18 @@ android {
             buildConfigField "String", "AUTHORITY", "\"music_app_fengxing\""
         }
     }
+
+    applicationVariants.all { variant ->
+        variant
+        if (variant.name.toLowerCase().endsWith('release')) {
+            variant.outputs.each { output ->
+                def outputName = "NewMusic"
+                outputName += "-" + variant.flavorName
+                outputName += "-" + variant.versionName + ".apk"
+                output.outputFile = new File(output.outputFile.parentFile, outputName)
+            }
+        }
+    }
 }
 
 dependencies {
