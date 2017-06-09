@@ -1,23 +1,22 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical" >
+    android:background="#F3F3F3"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_background" >
+        android:layout_height="wrap_content">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/btn_background"
             android:contentDescription="@string/image_view_content_description"
             android:onClick="onClickBack"
             android:scaleType="fitXY"
@@ -41,19 +40,19 @@
             android:layout_marginTop="20dp"
             android:contentDescription="@string/image_view_content_description"
             android:scaleType="fitXY"
-            android:src="@drawable/fenge4" />
+            android:src="@drawable/fenge1" />
     </RelativeLayout>
 
     <include
+        layout="@layout/music_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        layout="@layout/music_content" />
+        android:layout_weight="1" />
 
     <include
         android:id="@+id/player_panel"
+        layout="@layout/music_bottom_panel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/music_bottom_panel" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

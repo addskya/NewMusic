@@ -1,59 +1,93 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical" >
+    android:background="#F3F3F3"
+    android:orientation="vertical">
 
-    <LinearLayout
-        style="?android:attr/buttonBarStyle"
+    <RelativeLayout
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/navigation_background" >
+        android:fitsSystemWindows="true"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_original"
-            style="?android:attr/buttonBarButtonStyle"
+        <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/tab_background"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/text_search"
+            android:onClick="navigateSearch"
+            android:src="@drawable/ic_search" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C9C9C9" />
+
+    <RadioGroup
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/white"
+        android:checkedButton="@+id/btn_vip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/btn_vip"
+            style="@style/MainItemStyle"
+            android:onClick="navigateVip"
+            android:text="@string/text_vip" />
+
+        <RadioButton
+            android:id="@+id/btn_recommend"
+            style="@style/MainItemStyle"
+            android:onClick="navigateRecommend"
+            android:text="@string/text_recommend" />
+
+        <RadioButton
+            android:id="@+id/btn_top"
+            style="@style/MainItemStyle"
             android:onClick="navigateOriginal"
-            android:textColor="@color/music_main_button_original_text_color"
             android:text="@string/text_original_list" />
 
-        <Button
+        <RadioButton
             android:id="@+id/btn_favorites"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            style="@style/MainItemStyle"
             android:onClick="navigateFavorites"
-            android:textColor="@color/music_main_button_favorites_text_color"
             android:text="@string/text_favorites" />
 
-        <Button
-            android:id="@+id/btn_search"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="navigateSearch"
-            android:textColor="@color/music_main_button_search_text_color"
-            android:text="@string/text_search" />
-    </LinearLayout>
+    </RadioGroup>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
     </android.support.v4.view.ViewPager>
 
     <include
         android:id="@+id/player_panel"
+        layout="@layout/music_bottom_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        layout="@layout/music_bottom_panel" />
+        android:layout_gravity="bottom" />
 
 </LinearLayout>

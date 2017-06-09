@@ -6,24 +6,30 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class MusicPagerAdapter extends FragmentPagerAdapter {
-    private static final int PAGE_COUNT = 3;
-    private static final int PAGE_ORIGINAL = 0;
-    private static final int PAGE_FAVORITES = 1;
-    private static final int PAGE_SEARCH = 2;
 
-    public MusicPagerAdapter(Context context, FragmentManager fm) {
+    private static final int PAGE_VIP = 0;
+    private static final int PAGE_RECOMMEND = 1;
+    private static final int PAGE_TOP = 2;
+    private static final int PAGE_FAVORITE = 3;
+
+
+    private static final int PAGE_COUNT = 4;
+
+    public MusicPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public android.support.v4.app.Fragment getItem(int position) {
         switch (position) {
-            case PAGE_ORIGINAL:
+            case PAGE_VIP:
+                return VipFragment.newInstance();
+            case PAGE_RECOMMEND:
+                return RecommendFragment.newInstance();
+            case PAGE_TOP:
                 return OriginalListFragment.newInstance();
-            case PAGE_FAVORITES:
+            case PAGE_FAVORITE:
                 return FavoritesFragment.newInstance();
-            case PAGE_SEARCH:
-                return SearchFragment.newInstance();
             default:
                 return null;
         }

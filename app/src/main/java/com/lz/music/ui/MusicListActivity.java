@@ -86,13 +86,6 @@ public class MusicListActivity extends ListActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if (mChartCode != null && mChartCode.equalsIgnoreCase(getString(R.string.original_header_chart_code_list))) {
-                    mMusicList = getLocalMusicList();
-                    mPage = (int) Math.ceil(mMusicList.size() / 30);
-                    mHandler.sendEmptyMessage(MESSAGE_SHOW_MUSIC);
-                    return;
-                }
-
                 MusicListRsp list = MusicQueryInterface.getMusicsByChartId(MusicListActivity.this, mChartCode, mPage, 30);
                 if (list != null) {
                     // Log.d(TAG, "code = " + list.getResCode() + "    message = " + list.getResMsg());
@@ -188,28 +181,4 @@ public class MusicListActivity extends ListActivity {
         MusicPlayer.getInstance().removeMusicPlayerListener(mPlayerResponser);
     }
 
-    /**
-     * Get the Music List at local
-     *
-     * @return music list
-     */
-    private List<MusicInfo> getLocalMusicList() {
-        List<MusicInfo> list = new ArrayList<MusicInfo>(1);
-        Resources res = getResources();
-        String[] musicIds = res.getStringArray(R.array.music_id);
-        String[] musicNames = res.getStringArray(R.array.music_name);
-        String[] musicAuthor = res.getStringArray(R.array.music_author);
-        int musicLength = Math.min(musicIds.length, Math.min(musicNames.length, musicAuthor.length));
-        for (int i = 0; i < musicLength; i++) {
-            MusicInfo music = new MusicInfo();
-            music.setMusicId(musicIds[i]);
-            music.setSongName(musicNames[i]);
-            music.setSingerName(musicAuthor[i]);
-            list.add(music);
-        }
-        musicIds = null;
-        musicNames = null;
-        musicAuthor = null;
-        return list;
-    }
 }

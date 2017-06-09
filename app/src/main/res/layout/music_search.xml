@@ -1,35 +1,38 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/et_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/search2"
+            android:hint="@string/text_music_name"
+            android:imeOptions="actionSearch|actionDone"
+            android:lines="1"
+            android:maxLength="15"
+            android:maxLines="1"
             android:paddingLeft="5dp"
             android:paddingRight="50dp"
-            android:background="@drawable/search2"
-            android:maxLines="1"
-            android:maxLength="15"
-            android:textColor="@color/music_search_edittext_text_color"
-            android:hint="@string/text_music_name" />
+            android:textColor="@color/music_search_edittext_text_color" />
 
         <Button
             android:id="@+id/btn_search"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right|center_vertical"
-            android:layout_marginTop="3dp"
             android:layout_marginRight="25dp"
+            android:layout_marginTop="3dp"
             android:background="@drawable/search1" />
     </FrameLayout>
 
@@ -37,8 +40,8 @@
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:divider="@drawable/fenge1"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:divider="@drawable/fenge1" />
 
     <TextView
         android:id="@+id/tv_info"

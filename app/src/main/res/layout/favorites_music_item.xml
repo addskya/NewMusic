@@ -1,24 +1,21 @@
-<com.lz.music.ui.FavoritesMusicItem xmlns:android="http://schemas.android.com/apk/res/android"
+<com.lz.music.ui.FavoritesMusicItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
-    <Button
+    <ImageView
         android:id="@+id/btn_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
-        android:background="@drawable/btn_background"
-        android:drawableLeft="@drawable/gengduo"
-        android:focusable="false"
-        android:text="@string/text_item_more"
-        android:textColor="@color/music_item_button_more_text_color" />
+        android:src="@drawable/ic_more"/>
 
     <TextView
         android:id="@+id/tv_index"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
@@ -34,7 +31,7 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/tv_index"
         android:layout_toLeftOf="@id/btn_more"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="15dp"
         android:orientation="vertical" >
 
         <TextView
@@ -47,7 +44,7 @@
             android:text="@string/text_music_name"
             android:textColor="@color/music_item_music_name_text_color"
             android:textIsSelectable="false"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_singer"
@@ -59,7 +56,7 @@
             android:text="@string/text_singer_name"
             android:textColor="@color/music_item_singer_text_color"
             android:textIsSelectable="false"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
 </com.lz.music.ui.FavoritesMusicItem>

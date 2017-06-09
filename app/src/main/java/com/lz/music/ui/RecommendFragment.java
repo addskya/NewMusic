@@ -2,7 +2,11 @@
 package com.lz.music.ui;
 
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,26 +19,32 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cmsc.cmmusic.common.CMMusicCallback;
+import com.cmsc.cmmusic.common.CPManagerInterface;
 import com.cmsc.cmmusic.common.MusicQueryInterface;
 import com.cmsc.cmmusic.common.data.ChartInfo;
 import com.cmsc.cmmusic.common.data.ChartListRsp;
+import com.cmsc.cmmusic.common.data.MusicInfo;
+import com.cmsc.cmmusic.common.data.OrderResult;
 import com.cmsc.cmmusic.init.InitCmmInterface;
 import com.lz.music.kuyuehui.R;
+import com.lz.music.player.MusicPlayer;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-public class OriginalListFragment extends ListFragment {
+public class RecommendFragment extends ListFragment {
     private static final String TAG = "OriginalListFragment";
 
     private static final int MESSAGE_INIT = 0;
     private static final int MESSAGE_GET_CHART = 1;
 
     private TextView mInfo;
-    private List<ChartInfo> mChartList;
+    private List<MusicInfo> mMusicList;
 
     public static Fragment newInstance() {
-        return new OriginalListFragment();
+        return new RecommendFragment();
     }
 
     @Override
@@ -55,11 +65,9 @@ public class OriginalListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Intent i = new Intent(getActivity(), MusicListActivity.class);
-        ChartInfo chart = mChartList.get(position);
-        i.putExtra(MusicListActivity.KEY_CODE, chart.getChartCode());
-        i.putExtra(MusicListActivity.KEY_NAME, chart.getChartName());
-        startActivity(i);
+        //TODO Play
+        MusicPlayer.getInstance().setChartMusicList(getString(R.string.text_recommend), mMusicList);
+        ((MusicItem) v).playMusic(position);
     }
 
     private void init() {
@@ -76,7 +84,7 @@ public class OriginalListFragment extends ListFragment {
             }).start();
         } else {
             Log.d(TAG, "Has been initialized.");
-            getChartList();
+            getMusicList();
         }
 
     }
@@ -84,30 +92,26 @@ public class OriginalListFragment extends ListFragment {
     private void getChartIfNeed(int code) {
         if (code == 0) {
             Log.d(TAG, "Initialization is successful.");
-            getChartList();
+            getMusicList();
         } else {
             showCodeMeaning(code);
         }
     }
 
-    private void getChartList() {
+    private void getMusicList() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ChartListRsp chart = MusicQueryInterface.getChartInfo(getActivity(), 1, 30);
-                if (chart != null) {
-                    Log.d(TAG, "getChartInfo response code = " + chart.getResCode() + "    message = " + chart.getResMsg());
-                    mChartList = chart.getChartInfos();
-                    mHandler.sendEmptyMessage(MESSAGE_GET_CHART);
-                }
+                mMusicList = getLocalMusicList();
+                mHandler.sendEmptyMessage(MESSAGE_GET_CHART);
             }
         }).start();
     }
 
     private void showChartList() {
-        if (mChartList != null && mChartList.size() > 0) {
-            OriginalListAdapter adapter = new OriginalListAdapter(getActivity());
-            adapter.setChartList(mChartList);
+        if (mMusicList != null && mMusicList.size() > 0) {
+            MusicListAdapter adapter = new MusicListAdapter(getActivity());
+            adapter.addMusicList(mMusicList);
             mInfo.setVisibility(View.GONE);
             setListAdapter(adapter);
         }
@@ -138,7 +142,7 @@ public class OriginalListFragment extends ListFragment {
 
     private Handler mHandler = new Handler() {
         @Override
-        public void handleMessage(android.os.Message msg) {
+        public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MESSAGE_INIT:
                     getChartIfNeed(msg.arg1);
@@ -150,4 +154,29 @@ public class OriginalListFragment extends ListFragment {
         }
     };
 
+
+    /**
+     * Get the Music List at local
+     *
+     * @return music list
+     */
+    private List<MusicInfo> getLocalMusicList() {
+        List<MusicInfo> list = new ArrayList<MusicInfo>(1);
+        Resources res = getResources();
+        String[] musicIds = res.getStringArray(R.array.music_id);
+        String[] musicNames = res.getStringArray(R.array.music_name);
+        String[] musicAuthor = res.getStringArray(R.array.music_author);
+        int musicLength = Math.min(musicIds.length, Math.min(musicNames.length, musicAuthor.length));
+        for (int i = 0; i < musicLength; i++) {
+            MusicInfo music = new MusicInfo();
+            music.setMusicId(musicIds[i]);
+            music.setSongName(musicNames[i]);
+            music.setSingerName(musicAuthor[i]);
+            list.add(music);
+        }
+        musicIds = null;
+        musicNames = null;
+        musicAuthor = null;
+        return list;
+    }
 }

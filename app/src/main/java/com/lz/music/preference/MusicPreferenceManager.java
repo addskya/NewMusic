@@ -8,25 +8,25 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 
 public class MusicPreferenceManager {
-	private static final String KEY_IMSI = "key_imsi";
-	private static final String KEY_PHONE_NUMBER = "key_phone_number";
+    private static final String KEY_IMSI = "key_imsi";
+    private static final String KEY_PHONE_NUMBER = "key_phone_number";
 
-	private Context mContext;
-	private SharedPreferences mPreferences;
+    private Context mContext;
+    private SharedPreferences mPreferences;
 
-	public void savePhoneNumberAndIMSI(String number) {
-		Editor editor = mPreferences.edit();
-		editor.putString(KEY_PHONE_NUMBER, number);
-		editor.putString(KEY_IMSI, MusicUtil.getLocalPhoneIMSI(mContext));
-		editor.commit();
-	}
-	
-	public String getSavedIMSI() {
-		return mPreferences.getString("KEY_IMSI", "");
-	}
+    public void savePhoneNumberAndIMSI(String number) {
+        Editor editor = mPreferences.edit();
+        editor.putString(KEY_PHONE_NUMBER, number);
+        editor.putString(KEY_IMSI, MusicUtil.getLocalPhoneIMSI(mContext));
+        editor.commit();
+    }
 
-	public MusicPreferenceManager(Context context) {
-		mContext = context;
-		mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-	}
+    public String getSavedIMSI() {
+        return mPreferences.getString("KEY_IMSI", "");
+    }
+
+    public MusicPreferenceManager(Context context) {
+        mContext = context;
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+    }
 }

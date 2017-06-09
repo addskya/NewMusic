@@ -13,111 +13,111 @@ import android.net.Uri;
 import com.lz.music.database.MusicContent.Music;
 
 public class MusicProvider extends ContentProvider {
-	private static final int MUSIC = 0;
-	private static final int MUSIC_ID = 1;
+    private static final int MUSIC = 0;
+    private static final int MUSIC_ID = 1;
 
-	private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-	
-	private SQLiteDatabase mDatabase;
+    private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-	static {
-		sURIMatcher.addURI(MusicContent.AUTHORITY, "music", MUSIC);
-		sURIMatcher.addURI(MusicContent.AUTHORITY, "music/#", MUSIC_ID);
-	}
+    private SQLiteDatabase mDatabase;
 
-	@Override
-	public boolean onCreate() {
-		return true;
-	}
+    static {
+        sURIMatcher.addURI(MusicContent.AUTHORITY, "music", MUSIC);
+        sURIMatcher.addURI(MusicContent.AUTHORITY, "music/#", MUSIC_ID);
+    }
 
-	@Override
-	public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-		SQLiteDatabase db = getDatabase();
-		Cursor c = null;
+    @Override
+    public boolean onCreate() {
+        return true;
+    }
 
-		switch (sURIMatcher.match(uri)) {
-		case MUSIC:
-		case MUSIC_ID:
-			c = db.query(Music.TABLE_NAME, Music.CONTENT_PROJECTION, selection, selectionArgs, null, null, sortOrder);
-			break;
-		}
+    @Override
+    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        SQLiteDatabase db = getDatabase();
+        Cursor c = null;
 
-		return c;
-	}
+        switch (sURIMatcher.match(uri)) {
+            case MUSIC:
+            case MUSIC_ID:
+                c = db.query(Music.TABLE_NAME, Music.CONTENT_PROJECTION, selection, selectionArgs, null, null, sortOrder);
+                break;
+        }
 
-	@Override
-	public String getType(Uri uri) {
-		switch (sURIMatcher.match(uri)) {
-		case MUSIC:
-			return "vnd.android-dir/music";
-		case MUSIC_ID:
-			return "vnd.android/music";
-		default:
-			return null;
-		}
-	}
+        return c;
+    }
 
-	@Override
-	public Uri insert(Uri uri, ContentValues values) {
-		SQLiteDatabase db = getDatabase();
-		Uri result = null;
+    @Override
+    public String getType(Uri uri) {
+        switch (sURIMatcher.match(uri)) {
+            case MUSIC:
+                return "vnd.android-dir/music";
+            case MUSIC_ID:
+                return "vnd.android/music";
+            default:
+                return null;
+        }
+    }
 
-		switch (sURIMatcher.match(uri)) {
-		case MUSIC:
-		case MUSIC_ID:
-			long id = db.insert(Music.TABLE_NAME, "foo", values);
-			result = ContentUris.withAppendedId(uri, id);
-			break;
-		}
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+        SQLiteDatabase db = getDatabase();
+        Uri result = null;
 
-		return result;
-	}
+        switch (sURIMatcher.match(uri)) {
+            case MUSIC:
+            case MUSIC_ID:
+                long id = db.insert(Music.TABLE_NAME, "foo", values);
+                result = ContentUris.withAppendedId(uri, id);
+                break;
+        }
 
-	@Override
-	public int delete(Uri uri, String selection, String[] selectionArgs) {
-		return 0;
-	}
+        return result;
+    }
 
-	@Override
-	public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-		return 0;
-	}
+    @Override
+    public int delete(Uri uri, String selection, String[] selectionArgs) {
+        return 0;
+    }
 
-	private synchronized SQLiteDatabase getDatabase() {
-		if (mDatabase != null) {
-			return mDatabase;
-		}
+    @Override
+    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+        return 0;
+    }
 
-		DatabaseHelper helper = new DatabaseHelper(getContext());
-		mDatabase = helper.getWritableDatabase();
+    private synchronized SQLiteDatabase getDatabase() {
+        if (mDatabase != null) {
+            return mDatabase;
+        }
 
-		return mDatabase;
-	}
+        DatabaseHelper helper = new DatabaseHelper(getContext());
+        mDatabase = helper.getWritableDatabase();
 
-	private class DatabaseHelper extends SQLiteOpenHelper {
-		private static final int DATABASE_VERSION = 1;
-		private static final String DATABASE_NAME = "music.db";
+        return mDatabase;
+    }
 
-		public DatabaseHelper(Context context) {
-			super(context, DATABASE_NAME, null, DATABASE_VERSION);
-		}
+    private class DatabaseHelper extends SQLiteOpenHelper {
+        private static final int DATABASE_VERSION = 1;
+        private static final String DATABASE_NAME = "music.db";
 
-		@Override
-		public void onCreate(SQLiteDatabase db) {
-			createMusicTable(db);
-		}
+        public DatabaseHelper(Context context) {
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        }
 
-		@Override
-		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            createMusicTable(db);
+        }
 
-		}
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-		private void createMusicTable(SQLiteDatabase db) {
-			db.execSQL("create table " + Music.TABLE_NAME + "("
-					+ Music._ID + " integer primary key autoincrement, "
-					+ Music.ID + " text, "
-					+ Music.NAME + " text, "
-					+ Music.SINGER + " text);");
-		}
-	}
+        }
+
+        private void createMusicTable(SQLiteDatabase db) {
+            db.execSQL("create table " + Music.TABLE_NAME + "("
+                    + Music._ID + " integer primary key autoincrement, "
+                    + Music.ID + " text, "
+                    + Music.NAME + " text, "
+                    + Music.SINGER + " text);");
+        }
+    }
 }

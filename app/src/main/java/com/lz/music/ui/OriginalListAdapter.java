@@ -22,14 +22,7 @@ public class OriginalListAdapter extends BaseAdapter {
     private int[] mIds = {
             R.drawable.tu01,
             R.drawable.tu02,
-            R.drawable.tu03,
-            R.drawable.tu04,
-            R.drawable.tu05,
-            R.drawable.tu06,
-            R.drawable.tu07,
-            R.drawable.tu08,
-            R.drawable.tu09,
-            R.drawable.tu10
+            R.drawable.tu03
     };
 
     public OriginalListAdapter(Context context) {

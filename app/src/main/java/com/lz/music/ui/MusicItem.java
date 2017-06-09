@@ -30,7 +30,7 @@ public class MusicItem extends RelativeLayout {
     private TextView mName;
     private TextView mSinger;
     protected TextView mIndex;
-    protected Button mMore;
+    protected View mMore;
 
     protected MusicInfo mMusic;
     protected OnMusicOptionSelectListener mListener;
@@ -64,7 +64,7 @@ public class MusicItem extends RelativeLayout {
         mName = (TextView) findViewById(R.id.tv_name);
         mSinger = (TextView) findViewById(R.id.tv_singer);
         mIndex = (TextView) findViewById(R.id.tv_index);
-        mMore = (Button) findViewById(R.id.btn_more);
+        mMore = findViewById(R.id.btn_more);
         setMoreOnClickListener();
     }
 

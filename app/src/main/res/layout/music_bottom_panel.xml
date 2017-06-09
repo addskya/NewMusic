@@ -1,18 +1,27 @@
-<com.lz.music.ui.MusicPlayerPanel xmlns:android="http://schemas.android.com/apk/res/android"
+<com.lz.music.ui.MusicPlayerPanel
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/music_bottom_panel_background" >
+    android:background="#E3E3E3" >
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:id="@+id/progress_time"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/drag_bg"/>
 
     <ImageView
         android:id="@+id/music_icon"
         android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_height="62dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
         android:contentDescription="@string/image_view_content_description"
         android:padding="2dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/tu10" />
+        android:src="@drawable/ic_migu" />
 
     <Button
         android:id="@+id/btn_next"
@@ -21,7 +30,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
-        android:background="@drawable/xiayishou" />
+        android:background="@drawable/bg_next" />
 
     <Button
         android:id="@+id/btn_play"
@@ -30,7 +39,7 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
         android:layout_toLeftOf="@id/btn_next"
-        android:background="@drawable/play" />
+        android:background="@drawable/bg_play" />
 
     <Button
         android:id="@+id/btn_previous"
@@ -39,7 +48,7 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
         android:layout_toLeftOf="@id/btn_play"
-        android:background="@drawable/shangyishou" />
+        android:background="@drawable/bg_prev" />
 
     <TextView
         android:id="@+id/tv_name_singer"
@@ -69,21 +78,5 @@
         android:text="@string/text_time"
         android:textColor="@color/music_bottom_panel_time_text_color"
         android:textIsSelectable="false" />
-
-    <com.lz.music.ui.CustomSeekBar
-        android:id="@+id/progress_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_time"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/music_icon"
-        android:background="@drawable/bofangtiao"
-        android:maxHeight="6dp"
-        android:minHeight="6dp"
-        android:progressDrawable="@drawable/seekbar_style_2"
-        android:thumb="@drawable/bofangdian"
-        android:thumbOffset="5dp" />
 
 </com.lz.music.ui.MusicPlayerPanel>

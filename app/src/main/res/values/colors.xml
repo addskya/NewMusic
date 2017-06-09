@@ -13,18 +13,17 @@
     
     <color name="music_content_empty_view_text_color">@color/white</color>
 
-    <color name="music_item_button_more_text_color">@color/deep_gray</color>
-    <color name="music_item_music_name_text_color">@color/white</color>
-    <color name="music_item_singer_text_color">@color/white</color>
-    <color name="music_item_index_text_color">@color/deep_red</color>
+    <color name="music_item_button_more_text_color">@color/black</color>
+    <color name="music_item_music_name_text_color">@color/black</color>
+    <color name="music_item_singer_text_color">@color/black</color>
+    <color name="music_item_index_text_color">@color/black</color>
     
-    <color name="music_list_chart_name_text_color">@color/white</color>
+    <color name="music_list_chart_name_text_color">@color/black</color>
     
-    <color name="music_main_button_original_text_color">@color/white</color>
-    <color name="music_main_button_favorites_text_color">@color/white</color>
-    <color name="music_main_button_search_text_color">@color/white</color>
+    <color name="music_main_button_original_text_color">@color/black</color>
+    <color name="music_main_button_checked_text_color">@color/deep_red</color>
 
-    <color name="music_original_item_chart_name_text_color">@color/white</color>
+    <color name="music_original_item_chart_name_text_color">@color/black</color>
     <color name="music_search_edittext_text_color">@color/black</color>
 
     <color name="seekbar_style_2_center_color">@color/deep_red</color>

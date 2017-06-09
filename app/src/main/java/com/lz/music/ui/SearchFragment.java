@@ -17,10 +17,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ListFragment;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -54,6 +56,10 @@ public class SearchFragment extends ListFragment {
     }
 
     private void searchMusic() {
+        if (TextUtils.isEmpty(mText.getText())) {
+            Toast.makeText(getActivity(), "关键字不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -78,11 +84,20 @@ public class SearchFragment extends ListFragment {
         mSearch.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(mText.getText())) {
-                    Toast.makeText(getActivity(), "关键字不能为空", Toast.LENGTH_SHORT).show();
-                } else {
-                    searchMusic();
+                searchMusic();
+            }
+        });
+        mText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                switch (actionId) {
+                    case EditorInfo.IME_ACTION_SEARCH:
+                    case EditorInfo.IME_ACTION_DONE: {
+                        searchMusic();
+                        return true;
+                    }
                 }
+                return false;
             }
         });
     }
