@@ -1,10 +1,6 @@
 
 package com.lz.music.ui;
 
-import com.cmsc.cmmusic.common.data.MusicInfo;
-import com.lz.music.kuyuehui.R;
-import com.lz.music.player.MusicPlayer;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -17,16 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MusicItem extends RelativeLayout {
-    public static final int TYPE_MUSIC_LIST = 0;
-    public static final int TYPE_FAVORITES_LIST = 1;
+import com.cmsc.cmmusic.common.data.MusicInfo;
+import com.lz.music.kuyuehui.R;
+import com.lz.music.player.MusicPlayer;
 
-    protected Context mContext;
+public class MusicItem extends RelativeLayout {
+    public static final int TYPE_MUSIC_RECOMMEND = 0;
+    public static final int TYPE_MUSIC_LIST = 1;
+    public static final int TYPE_FAVORITES_LIST = 2;
+
     private TextView mName;
     private TextView mSinger;
     protected TextView mIndex;
@@ -38,7 +37,6 @@ public class MusicItem extends RelativeLayout {
 
     public MusicItem(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mContext = context;
     }
 
     @Override
@@ -70,12 +68,12 @@ public class MusicItem extends RelativeLayout {
 
     @SuppressLint("InflateParams")
     protected void showOptionDialog(final int type) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_option, null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_option, null);
         TextView title = (TextView) view.findViewById(R.id.title);
         String name = mMusic == null ? "未知" : mMusic.getSongName();
         title.setText(name);
         ListView list = (ListView) view.findViewById(android.R.id.list);
-        list.setAdapter(new OptionAdapter(mContext, type));
+        list.setAdapter(new OptionAdapter(getContext(), type));
         list.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -83,7 +81,9 @@ public class MusicItem extends RelativeLayout {
                     if (mDialog != null) {
                         mDialog.dismiss();
                     }
-                    if (type == TYPE_MUSIC_LIST) {
+                    if(type == TYPE_MUSIC_RECOMMEND){
+                        mListener.onMusicOptionSelect(mMusic, position);
+                    } else if (type == TYPE_MUSIC_LIST) {
                         mListener.onMusicOptionSelect(mMusic, position);
                     } else if (type == TYPE_FAVORITES_LIST) {
                         mListener.onMusicOptionSelect(mMusic, position + 1);
@@ -92,7 +92,7 @@ public class MusicItem extends RelativeLayout {
             }
         });
 
-        Builder builder = new AlertDialog.Builder(mContext);
+        Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view);
         builder.setOnCancelListener(new OnCancelListener() {
             @Override

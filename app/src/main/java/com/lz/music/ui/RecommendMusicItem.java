@@ -1,18 +1,18 @@
 
 package com.lz.music.ui;
 
-import com.lz.music.kuyuehui.R;
-
 import android.content.Context;
 import android.util.AttributeSet;
 
-public class FavoritesMusicItem extends MusicItem {
-    public FavoritesMusicItem(Context context, AttributeSet attrs) {
+import com.lz.music.kuyuehui.R;
+
+public class RecommendMusicItem extends MusicItem {
+    public RecommendMusicItem(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     protected void showOptionDialog(int type) {
-        super.showOptionDialog(TYPE_FAVORITES_LIST);
+        super.showOptionDialog(TYPE_MUSIC_RECOMMEND);
     }
 
     protected void setMusicIndex(int position) {

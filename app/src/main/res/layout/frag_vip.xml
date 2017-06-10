@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/text_vip"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/text_not_vip"
         android:textColor="@color/deep_gray"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tips"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon"
+        android:text="@string/text_order_vip" />
+
+</RelativeLayout>

@@ -1,7 +1,6 @@
-<com.lz.music.ui.FavoritesMusicItem
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.lz.music.ui.FavoritesMusicItem xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/btn_more"
@@ -9,8 +8,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/ic_more"/>
+        android:layout_marginRight="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_more" />
 
     <TextView
         android:id="@+id/tv_index"
@@ -21,18 +22,18 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:gravity="center_vertical"
-        android:textSize="20sp"
         android:textColor="@color/music_item_index_text_color"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/tv_index"
-        android:layout_toLeftOf="@id/btn_more"
         android:layout_marginRight="15dp"
-        android:orientation="vertical" >
+        android:layout_toLeftOf="@id/btn_more"
+        android:layout_toRightOf="@id/tv_index"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_name"

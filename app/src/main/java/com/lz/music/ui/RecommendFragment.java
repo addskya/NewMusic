@@ -42,6 +42,7 @@ public class RecommendFragment extends ListFragment {
 
     private TextView mInfo;
     private List<MusicInfo> mMusicList;
+    private MusicOption mOption;
 
     public static Fragment newInstance() {
         return new RecommendFragment();
@@ -60,6 +61,7 @@ public class RecommendFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mOption = new MusicOption(getActivity());
         init();
     }
 
@@ -114,6 +116,13 @@ public class RecommendFragment extends ListFragment {
             adapter.addMusicList(mMusicList);
             mInfo.setVisibility(View.GONE);
             setListAdapter(adapter);
+            adapter.setOnMusicOptionSelectListener(new MusicItem.OnMusicOptionSelectListener() {
+                @Override
+                public void onMusicOptionSelect(MusicInfo music, int position) {
+                    mOption.setMusicInfo(music);
+                    mOption.doOption(position);
+                }
+            });
         }
     }
 

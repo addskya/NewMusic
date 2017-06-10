@@ -7,11 +7,15 @@
     <color name="gray">#36648B</color>
     <color name="deep_gray">#878787</color>
 
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
     <color name="music_bottom_panel_background">@color/gray</color>
     <color name="music_bottom_panel_name_singer_text_color">@color/white</color>
     <color name="music_bottom_panel_time_text_color">@color/white</color>
     
-    <color name="music_content_empty_view_text_color">@color/white</color>
+    <color name="music_content_empty_view_text_color">@color/black</color>
 
     <color name="music_item_button_more_text_color">@color/black</color>
     <color name="music_item_music_name_text_color">@color/black</color>
@@ -35,5 +39,5 @@
 
     <color name="dialog_option_background">@color/white</color>
     <color name="dialog_option_text_color">@color/deep_gray</color>
-    <color name="dialog_option_title_text_color">@color/black</color>
+    <color name="dialog_option_title_text_color">@color/white</color>
 </resources>

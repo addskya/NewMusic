@@ -21,10 +21,19 @@ public class OptionAdapter extends BaseAdapter {
         mContext = context;
         if (type == MusicItem.TYPE_FAVORITES_LIST) {
             mItems = mContext.getResources().getStringArray(R.array.music_options_2);
-            mIds = new int[] { R.drawable.zhenling, R.drawable.ring, R.drawable.ring, R.drawable.ring, R.drawable.download };
+            mIds = new int[] {
+                    R.drawable.ic_ring,
+                    R.drawable.ic_music,
+                    R.drawable.ic_download
+            };
         } else if (type == MusicItem.TYPE_MUSIC_LIST) {
             mItems = mContext.getResources().getStringArray(R.array.music_options);
-            mIds = new int[] { R.drawable.shoucang, R.drawable.zhenling, R.drawable.ring, R.drawable.ring, R.drawable.ring, R.drawable.download };
+            mIds = new int[] {
+                    R.drawable.ic_favorite,
+                    R.drawable.ic_ring,
+                    R.drawable.ic_music,
+                    R.drawable.ic_download
+            };
         }
     }
 

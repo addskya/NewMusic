@@ -47,4 +47,8 @@
     <string name="migu_cls_name">"cmccwm.mobilemusic.ui.activity.PreSplashActivityMigu"</string>
     <string name="url_migu_index">"http://wm.10086.cn/view/wap/musicindex.do?cType=sst_client&amp;nodeId=7638&amp;cid=014002C"</string>
 
+    <string name="text_vip_rights">"欢迎你会员用户,你将具有以下权限：\n 1.免费下载所有音乐 \n 2.在线试听所有音乐"</string>
+    <string name="text_not_vip">"你还不是Vip会员,\n点击订购按钮进行订购"</string>
+    <string name="text_order_vip">"订购"</string>
+
 </resources>
