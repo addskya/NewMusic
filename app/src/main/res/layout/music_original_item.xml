@@ -3,15 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:ignore="UseCompoundDrawables" >
+    tools:ignore="UseCompoundDrawables">
 
-    <ImageView
-        android:id="@+id/chart_icon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="5dp"
-        android:contentDescription="@string/image_view_content_description"
-        android:padding="2dp" />
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="5dp">
+
+        <ImageView
+            android:id="@+id/chart_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/image_view_content_description"
+            android:padding="2dp"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/chart_name_ceil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/chart_name"
@@ -20,7 +39,7 @@
         android:layout_marginLeft="5dp"
         android:gravity="center_vertical"
         android:textColor="@color/music_original_item_chart_name_text_color"
-        android:textSize="16sp"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:textSize="16sp" />
 
 </LinearLayout>

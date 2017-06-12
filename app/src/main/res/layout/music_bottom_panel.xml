@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/drag_bg"/>
+        android:background="@drawable/drag_bg"
+        android:progressDrawable="@drawable/progress"/>
 
     <ImageView
         android:id="@+id/music_icon"

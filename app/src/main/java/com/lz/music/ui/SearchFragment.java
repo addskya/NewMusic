@@ -32,7 +32,7 @@ import android.widget.Toast;
 public class SearchFragment extends ListFragment {
     private static final int MESSAGE_SHOW_SEARCH_RESULT = 0;
 
-    private Button mSearch;
+    private View mSearch;
     private EditText mText;
     private TextView mInfo;
 
@@ -43,7 +43,7 @@ public class SearchFragment extends ListFragment {
     @SuppressLint("InflateParams")
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.music_search, null);
-        mSearch = (Button) view.findViewById(R.id.btn_search);
+        mSearch = view.findViewById(R.id.btn_search);
         mText = (EditText) view.findViewById(R.id.et_search);
         mInfo = (TextView) view.findViewById(R.id.tv_info);
         return view;

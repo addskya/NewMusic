@@ -7,9 +7,8 @@
     <color name="gray">#36648B</color>
     <color name="deep_gray">#878787</color>
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#33B5E5</color>
+    <color name="colorPrimaryLight">#B3E5F8</color>
 
     <color name="music_bottom_panel_background">@color/gray</color>
     <color name="music_bottom_panel_name_singer_text_color">@color/white</color>
@@ -19,13 +18,13 @@
 
     <color name="music_item_button_more_text_color">@color/black</color>
     <color name="music_item_music_name_text_color">@color/black</color>
-    <color name="music_item_singer_text_color">@color/black</color>
+    <color name="music_item_singer_text_color">#d2d0d0</color>
     <color name="music_item_index_text_color">@color/black</color>
     
     <color name="music_list_chart_name_text_color">@color/black</color>
     
     <color name="music_main_button_original_text_color">@color/black</color>
-    <color name="music_main_button_checked_text_color">@color/deep_red</color>
+    <color name="music_main_button_checked_text_color">@color/colorPrimary</color>
 
     <color name="music_original_item_chart_name_text_color">@color/black</color>
     <color name="music_search_edittext_text_color">@color/black</color>

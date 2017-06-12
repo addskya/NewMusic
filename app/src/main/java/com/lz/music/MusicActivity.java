@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ public class MusicActivity extends FragmentActivity {
     private PlayerResponser mPlayerResponser;
 
     private RadioGroup mRadioGroup;
+    private View mIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,8 @@ public class MusicActivity extends FragmentActivity {
     private void init() {
 
         mRadioGroup = (RadioGroup) findViewById(R.id.nav_bar);
-
+        mIndicator = findViewById(R.id.indicator);
+        prepareIndicator();
         mPlayerPanel = (MusicPlayerPanel) findViewById(R.id.player_panel);
         mPlayerPanel.updatePlayer(MusicPlayer.getInstance().getCurrentMusic());
         mPlayerResponser = new PlayerResponser(mPlayerPanel);
@@ -112,6 +115,16 @@ public class MusicActivity extends FragmentActivity {
         }
     }
 
+    private void prepareIndicator(){
+        mIndicator.setVisibility(View.VISIBLE);
+        int screenWidth = getResources().getDisplayMetrics().widthPixels;
+        ViewGroup.LayoutParams params = mIndicator.getLayoutParams();
+        params.width = (screenWidth - 8 * 20 ) / 4;
+        mIndicator.setLayoutParams(params);
+        ViewGroup.MarginLayoutParams margin = (ViewGroup.MarginLayoutParams) params;
+        margin.leftMargin = (screenWidth - params.width * 4 ) / 8;
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -124,6 +137,23 @@ public class MusicActivity extends FragmentActivity {
         @Override
         public void onPageSelected(int position) {
             selectTabs(position);
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            final ViewGroup container = mRadioGroup;
+            final int pageWidth = container.getMeasuredWidth();
+            final int childCount = container.getChildCount();
+            if (childCount <= 0) {
+                return;
+            }
+            final View firstView = container.getChildAt(0);
+            if (firstView == null) {
+                return;
+            }
+            final int childWidth = firstView.getMeasuredWidth();
+            float offset = (pageWidth * 1.0f - childWidth * childCount) / (childCount - 1) + childWidth;
+            mIndicator.setTranslationX((position + positionOffset) * offset);
         }
     };
 }

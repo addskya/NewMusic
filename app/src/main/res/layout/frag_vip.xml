@@ -1,27 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tips"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/vip"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:text="@string/text_not_vip"
-        android:textColor="@color/deep_gray"
-        android:textSize="20sp" />
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tips"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/icon"
-        android:text="@string/text_order_vip" />
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="left"
+            android:text="@string/text_hint_not_vip"
+            android:textColor="@color/deep_gray"
+            android:textSize="14sp" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/text_vip_rights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="@string/text_vip_rights_list"
+            android:textColor="#fc9898"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="@string/text_order"
+            android:textColor="@color/deep_gray"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:minHeight="40dp"
+            android:layout_below="@+id/tips"
+            android:background="@drawable/bg_order_cp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon"
+            android:text="@string/text_order_vip"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/music_list"
+        layout="@layout/music_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</FrameLayout>

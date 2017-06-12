@@ -34,6 +34,6 @@
         <item name="android:button">@null</item>
     </style>
 
-
+    <style name="DialogTheme" parent="android:Theme.Holo.Light.Panel"/>
 
 </resources>

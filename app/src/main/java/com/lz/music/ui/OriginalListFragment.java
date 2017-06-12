@@ -59,6 +59,7 @@ public class OriginalListFragment extends ListFragment {
         ChartInfo chart = mChartList.get(position);
         i.putExtra(MusicListActivity.KEY_CODE, chart.getChartCode());
         i.putExtra(MusicListActivity.KEY_NAME, chart.getChartName());
+        Log.e(TAG,"chart:" + chart);
         startActivity(i);
     }
 

@@ -12,7 +12,7 @@
         android:gravity="center"
         android:textColor="@color/dialog_option_title_text_color"
         android:textIsSelectable="false"
-        android:textSize="25sp" />
+        android:textSize="14sp" />
 
     <ListView
         android:id="@android:id/list"

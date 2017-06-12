@@ -1,16 +1,15 @@
-<com.lz.music.ui.FavoritesMusicItem xmlns:android="http://schemas.android.com/apk/res/android"
+<com.lz.music.ui.FavoritesMusicItem
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/btn_more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="15dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:src="@drawable/ic_more" />
 
     <TextView
@@ -45,7 +44,7 @@
             android:text="@string/text_music_name"
             android:textColor="@color/music_item_music_name_text_color"
             android:textIsSelectable="false"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_singer"
@@ -57,7 +56,7 @@
             android:text="@string/text_singer_name"
             android:textColor="@color/music_item_singer_text_color"
             android:textIsSelectable="false"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 </com.lz.music.ui.FavoritesMusicItem>

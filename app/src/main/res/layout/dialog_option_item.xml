@@ -25,6 +25,6 @@
         android:minHeight="50dp"
         android:textColor="@color/dialog_option_text_color"
         android:textIsSelectable="false"
-        android:textSize="20sp" />
+        android:textSize="14sp" />
 
 </LinearLayout>
