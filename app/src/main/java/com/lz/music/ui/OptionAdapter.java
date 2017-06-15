@@ -22,7 +22,7 @@ public class OptionAdapter extends BaseAdapter {
         if (type == MusicItem.TYPE_FAVORITES_LIST) {
             mItems = mContext.getResources().getStringArray(R.array.music_options_2);
             mIds = new int[] {
-                    R.drawable.ic_ring,
+                    //R.drawable.ic_ring,
                     R.drawable.ic_music,
                     R.drawable.ic_download
             };
@@ -30,7 +30,7 @@ public class OptionAdapter extends BaseAdapter {
             mItems = mContext.getResources().getStringArray(R.array.music_options);
             mIds = new int[] {
                     R.drawable.ic_favorite,
-                    R.drawable.ic_ring,
+                    //R.drawable.ic_ring,
                     R.drawable.ic_music,
                     R.drawable.ic_download
             };

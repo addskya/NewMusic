@@ -8,6 +8,7 @@ android {
         applicationId "com.lz.music.kuyuehui"
         minSdkVersion 15
         targetSdkVersion 21
+
     }
 
     signingConfigs {
@@ -31,12 +32,10 @@ android {
             applicationId = "com.lz.music.kuyuehui"
             buildConfigField "String", "AUTHORITY", "\"music_app_kuyuehui\""
         }
-
         bsm {
             applicationId = "com.lz.music"
             buildConfigField "String", "AUTHORITY", "\"music_app_music\""
         }
-
         fx {
             applicationId = "com.lz.music.fengxing"
             buildConfigField "String", "AUTHORITY", "\"music_app_fengxing\""

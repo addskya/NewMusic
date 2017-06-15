@@ -28,6 +28,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class MusicOption {
+
+    private static final String TAG = "MusicOption";
+
     private static final int MESSAGE_DOWNLOAD_VIBRATERING = 0;
     private static final int MESSAGE_DOWNLOAD_RINGBACK = 1;
     private static final int MESSAGE_DOWNLOAD_MUSIC = 2;
@@ -42,7 +45,7 @@ public class MusicOption {
 
     private boolean mCpStore;
 
-    public MusicOption(Context c , boolean cpStore) {
+    public MusicOption(Context c, boolean cpStore) {
         mContext = c;
         mCpStore = cpStore;
     }
@@ -56,10 +59,10 @@ public class MusicOption {
             case 0:
                 favorites();
                 break;
+            //case 1:
+            //    setVibrateRing();
+            //    break;
             case 1:
-                setVibrateRing();
-                break;
-            case 2:
                 setRingBack();
                 break;
             // case 3:
@@ -68,8 +71,8 @@ public class MusicOption {
             // case 4:
             // buyCPMonth();
             // break;
-            case 3:
-                if(mCpStore){
+            case 2:
+                if (mCpStore) {
                     downloadCpMusic();
                 } else {
                     downloadMusic();
@@ -118,6 +121,7 @@ public class MusicOption {
                 RingbackManagerInterface.buyRingBack(mContext, mMusic.getMusicId(), new CMMusicCallback<OrderResult>() {
                     @Override
                     public void operationResult(OrderResult result) {
+                        Log.i(TAG, "OrderResult:" + result);
                         if (result != null) {
                             Message message = Message.obtain();
                             message.what = MESSAGE_DOWNLOAD_RINGBACK;
@@ -125,7 +129,7 @@ public class MusicOption {
                                 message.arg1 = 0;
                             } else {
                                 message.arg1 = 1;
-                                message.obj = result.getResMsg() == null ? "设置彩铃失败" : result.getResMsg();
+                                message.obj = TextUtils.isEmpty(result.getResMsg()) ? "设置彩铃失败" : result.getResMsg();
                             }
                             mHandler.sendMessage(message);
                         }
@@ -168,38 +172,53 @@ public class MusicOption {
                 Log.d("lz", "downloadMusic id = " + mMusic.getMusicId());
                 FullSongManagerInterface.getFullSongDownloadUrl(mContext, mMusic.getMusicId(),
                         new CMMusicCallback<OrderResult>() {
-                    @Override
-                    public void operationResult(OrderResult result) {
-                        if (result != null) {
-                            Log.d("lz", "Full song url = " + result.getDownUrl());
-                            mMusicDownloadUrl = result.getDownUrl();
-                            mHandler.sendEmptyMessage(MESSAGE_DOWNLOAD_MUSIC);
-                        }
-                    }
-                });
+                            @Override
+                            public void operationResult(OrderResult result) {
+                                Log.i(TAG, "OrderResult:" + result);
+                                if (result != null) {
+                                    Log.d(TAG, "Full song url = " + result.getDownUrl());
+                                    mMusicDownloadUrl = result.getDownUrl();
+                                    Message msg = mHandler.obtainMessage(MESSAGE_DOWNLOAD_MUSIC);
+                                    if (result.getResCode() != null && result.getResCode().equals("000000")) {
+                                        msg.arg1 = 0;
+                                    } else {
+                                        msg.arg1 = 1;
+                                        msg.obj = TextUtils.isEmpty(result.getResMsg()) ? "操作失败" : result.getResMsg();
+                                    }
+                                    msg.sendToTarget();
+                                }
+                            }
+                        });
             }
         }).start();
     }
 
-    private void downloadCpMusic(){
-        Log.e("OrangeDebug", GetPublicKey.getSignInfo(mContext));
-        new Thread(){
+    private void downloadCpMusic() {
+        new Thread() {
             @Override
             public void run() {
                 Log.d("lz", "downloadCpMusic id = " + mMusic.getMusicId());
                 String serviceId = mContext.getResources().getString(R.string.service_id);
                 CPManagerInterface.queryCPFullSongDownloadUrl(mContext, serviceId,
-                        mMusic.getMusicId(),"", new CMMusicCallback<OrderResult>() {
-                    @Override
-                    public void operationResult(OrderResult result) {
-                        Log.d("lz", "OrderResult:" + result);
-                        if (result != null) {
-                            Log.d("lz", "Full song url = " + result.getDownUrl());
-                            mMusicDownloadUrl = result.getDownUrl();
-                            mHandler.sendEmptyMessage(MESSAGE_DOWNLOAD_MUSIC);
-                        }
-                    }
-                });
+                        mMusic.getMusicId(), "", new CMMusicCallback<OrderResult>() {
+                            @Override
+                            public void operationResult(OrderResult result) {
+                                Log.i(TAG, "OrderResult:" + result);
+                                Log.d(TAG, "OrderResult:" + result);
+                                if (result != null) {
+                                    Log.d(TAG, "Full song url = " + result.getDownUrl());
+                                    mMusicDownloadUrl = result.getDownUrl();
+                                    Message msg = mHandler.obtainMessage(MESSAGE_DOWNLOAD_MUSIC);
+                                    if (result.getResCode() != null && result.getResCode().equals("000000")) {
+                                        msg.arg1 = 0;
+                                    } else {
+                                        msg.arg1 = 1;
+                                        msg.obj = TextUtils.isEmpty(result.getResMsg()) ? "操作失败" : result.getResMsg();
+                                    }
+                                    msg.sendToTarget();
+                                }
+                            }
+                        });
             }
         }.start();
     }
@@ -216,6 +235,7 @@ public class MusicOption {
                     break;
                 case MESSAGE_DOWNLOAD_MUSIC:
                     downloadFullSong();
+                    showDownloadResult(msg.arg1, msg.obj);
                     break;
                 case MESSAGE_DOWNLOAD_RING_MONTH:
                     showRingMonthResult(msg.arg1, msg.obj);
@@ -253,6 +273,14 @@ public class MusicOption {
     private void showCPMonthResult(int result, Object obj) {
         if (result == 0) {
             Toast.makeText(mContext, "CP包月成功", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(mContext, obj.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void showDownloadResult(int result, Object obj) {
+        if (result == 0) {
+            Toast.makeText(mContext, "开始下载...", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(mContext, obj.toString(), Toast.LENGTH_LONG).show();
         }
