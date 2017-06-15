@@ -66,7 +66,7 @@ public class MusicListActivity extends ListActivity {
         mPlayerPanel = (MusicPlayerPanel) findViewById(R.id.player_panel);
         mPlayerPanel.updatePlayer(MusicPlayer.getInstance().getCurrentMusic());
 
-        mOption = new MusicOption(this);
+        mOption = new MusicOption(this,false);
         mPlayerResponser = new PlayerResponser(mPlayerPanel);
 
         getListView().setOnScrollListener(mOnScrollListener);

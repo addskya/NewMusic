@@ -80,7 +80,7 @@ public class SearchFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mOption = new MusicOption(getActivity());
+        mOption = new MusicOption(getActivity(),false);
         mSearch.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

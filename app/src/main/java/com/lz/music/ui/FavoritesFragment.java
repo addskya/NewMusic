@@ -45,7 +45,7 @@ public class FavoritesFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMusicList = new ArrayList<MusicInfo>();
-        mOption = new MusicOption(getActivity());
+        mOption = new MusicOption(getActivity(),false);
         mAdapter = new FavoritesAdapter(getActivity());
         mAdapter.setOnMusicOptionSelectListener(mListener);
         setListAdapter(mAdapter);

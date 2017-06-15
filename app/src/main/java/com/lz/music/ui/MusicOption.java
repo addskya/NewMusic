@@ -15,6 +15,7 @@ import com.lz.music.MusicApp;
 import com.lz.music.database.MusicContent.Music;
 import com.lz.music.download.DownloadMusic;
 import com.lz.music.kuyuehui.R;
+import com.lz.music.util.GetPublicKey;
 import com.lz.music.util.MusicUtil;
 
 import android.content.ContentValues;
@@ -39,8 +40,11 @@ public class MusicOption {
     private String mVibrateRingDownloadUrl;
     private String mMusicDownloadUrl;
 
-    public MusicOption(Context c) {
+    private boolean mCpStore;
+
+    public MusicOption(Context c , boolean cpStore) {
         mContext = c;
+        mCpStore = cpStore;
     }
 
     public void setMusicInfo(MusicInfo music) {
@@ -65,7 +69,11 @@ public class MusicOption {
             // buyCPMonth();
             // break;
             case 3:
-                checkCpMonthAndDownloadMusic();
+                if(mCpStore){
+                    downloadCpMusic();
+                } else {
+                    downloadMusic();
+                }
                 break;
         }
     }
@@ -152,70 +160,14 @@ public class MusicOption {
     // }).start();
     // }
     //
-    private void buyCPMonth() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                CPManagerInterface.openCPMonth(mContext,
-                        mContext.getString(R.string.service_id), null, new CMMusicCallback<OrderResult>() {
-                            @Override
-                            public void operationResult(OrderResult result) {
-                                if (result != null) {
-                                    Message message = Message.obtain();
-                                    message.what = MESSAGE_DOWNLOAD_CP_MONTH;
-                                    if (result.getResCode() != null && result.getResCode().equals("000000")) {
-                                        message.arg1 = 0;
-                                    } else {
-                                        message.arg1 = 1;
-                                        message.obj = result.getResMsg() == null ? "CP包月失败" : result.getResMsg();
-                                    }
-                                    mHandler.sendMessage(message);
-                                }
-                            }
-                        });
-            }
-        }).start();
-    }
-
-    private void checkCpMonthAndDownloadMusic() {
-        String[] headers = mContext.getResources().getStringArray(R.array.original_header_code);
-        String cpMonth = mContext.getResources().getString(R.string.original_header_chart_code_cp);
-        boolean hasCpMonth = false;
-        if (headers != null && headers.length > 0) {
-            for (String header : headers) {
-                if (!TextUtils.isEmpty(cpMonth) && cpMonth.equalsIgnoreCase(header)) {
-                    hasCpMonth = true;
-                    break;
-                }
-            }
-        }
-
-        if (hasCpMonth) {
-            new Thread() {
-                @Override
-                public void run() {
-                    QueryResult result = CPManagerInterface.queryCPMonth(mContext,
-                            mContext.getString(R.string.service_id));
-                    Log.i("OrangeDebug", "QueryResult:" + result);
-                    if (result.getResCode() != null && result.getResCode().equals("000000")) {
-                        downloadMusic();
-                    } else {
-                        buyCPMonth();
-                    }
-                }
-            }.start();
-
-        } else {
-            downloadMusic();
-        }
-    }
 
     private void downloadMusic() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.d("lz", "music id = " + mMusic.getMusicId());
-                FullSongManagerInterface.getFullSongDownloadUrl(mContext, mMusic.getMusicId(), new CMMusicCallback<OrderResult>() {
+                Log.d("lz", "downloadMusic id = " + mMusic.getMusicId());
+                FullSongManagerInterface.getFullSongDownloadUrl(mContext, mMusic.getMusicId(),
+                        new CMMusicCallback<OrderResult>() {
                     @Override
                     public void operationResult(OrderResult result) {
                         if (result != null) {
@@ -227,6 +179,29 @@ public class MusicOption {
                 });
             }
         }).start();
+    }
+
+    private void downloadCpMusic(){
+        Log.e("OrangeDebug", GetPublicKey.getSignInfo(mContext));
+        new Thread(){
+            @Override
+            public void run() {
+                Log.d("lz", "downloadCpMusic id = " + mMusic.getMusicId());
+                String serviceId = mContext.getResources().getString(R.string.service_id);
+                CPManagerInterface.queryCPFullSongDownloadUrl(mContext, serviceId,
+                        mMusic.getMusicId(),"", new CMMusicCallback<OrderResult>() {
+                    @Override
+                    public void operationResult(OrderResult result) {
+                        Log.d("lz", "OrderResult:" + result);
+                        if (result != null) {
+                            Log.d("lz", "Full song url = " + result.getDownUrl());
+                            mMusicDownloadUrl = result.getDownUrl();
+                            mHandler.sendEmptyMessage(MESSAGE_DOWNLOAD_MUSIC);
+                        }
+                    }
+                });
+            }
+        }.start();
     }
 
     private Handler mHandler = new Handler() {

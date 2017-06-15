@@ -56,7 +56,7 @@ public class RecommendFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mOption = new MusicOption(getActivity());
+        mOption = new MusicOption(getActivity(), false);
         getListView().setOnScrollListener(mOnScrollListener);
         init();
     }
