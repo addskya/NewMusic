@@ -1,274 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="music_id">
-        <item>"63272500100"</item>
-        <item>"63272500099"</item>
-        <item>"63272500098"</item>
-        <item>"63272500097"</item>
-        <item>"63272500096"</item>
-        <item>"63272500095"</item>
-        <item>"63272500094"</item>
-        <item>"63272500093"</item>
-        <item>"63272500092"</item>
-        <item>"63272500091"</item>
-        <item>"63272500090"</item>
-        <item>"63272500089"</item>
-        <item>"63272500088"</item>
-        <item>"63272500087"</item>
-        <item>"63272500086"</item>
-        <item>"63272500085"</item>
-        <item>"63272500083"</item>
-        <item>"63272500082"</item>
-        <item>"63272500081"</item>
-        <item>"63272500080"</item>
-        <item>"63272500079"</item>
-        <item>"63272500078"</item>
-        <item>"63272500077"</item>
-        <item>"63272500076"</item>
-        <item>"63272500075"</item>
-        <item>"63272500073"</item>
-        <item>"63272500071"</item>
-        <item>"63272500070"</item>
-        <item>"63272500068"</item>
-        <item>"63272500067"</item>
-        <item>"63272500066"</item>
-        <item>"63272500065"</item>
-        <item>"63272500064"</item>
-        <item>"63272500062"</item>
-        <item>"63272500061"</item>
-        <item>"63272500060"</item>
-        <item>"63272500059"</item>
-        <item>"63272500058"</item>
-        <item>"63272500057"</item>
-        <item>"63272500056"</item>
-        <item>"63272500055"</item>
-        <item>"63272500054"</item>
-        <item>"63272500053"</item>
-        <item>"63272500052"</item>
-        <item>"63272500051"</item>
-        <item>"63272500050"</item>
-        <item>"63272500049"</item>
-        <item>"63272500048"</item>
-        <item>"63272500047"</item>
-        <item>"63272500046"</item>
-        <item>"63272500045"</item>
-        <item>"63272500044"</item>
-        <item>"63272500043"</item>
-        <item>"63272500042"</item>
-        <item>"63272500041"</item>
-        <item>"63272500040"</item>
-        <item>"63272500039"</item>
-        <item>"63272500037"</item>
-        <item>"63272500036"</item>
-        <item>"63272500035"</item>
-        <item>"63272500034"</item>
-        <item>"63272500033"</item>
-        <item>"63272500032"</item>
-        <item>"63272500031"</item>
-        <item>"63272500030"</item>
-        <item>"63272500029"</item>
-        <item>"63272500027"</item>
-        <item>"63272500026"</item>
-        <item>"63272500025"</item>
-        <item>"63272500024"</item>
-        <item>"63272500023"</item>
-        <item>"63272500022"</item>
-        <item>"63272500019"</item>
-        <item>"63272500018"</item>
-        <item>"63272500015"</item>
-        <item>"63272500014"</item>
-        <item>"63272500013"</item>
-        <item>"63272500012"</item>
-        <item>"63272500011"</item>
-        <item>"63272500010"</item>
-        <item>"63272500009"</item>
-        <item>"63272500008"</item>
-        <item>"63272500007"</item>
-        <item>"63272500005"</item>
-        <item>"63272500004"</item>
-        <item>"63272500003"</item>
-        <item>"63272500002"</item>
+        <item>"63371500121"</item>
+        <item>"63371500120"</item>
+        <item>"63371500119"</item>
+        <item>"63371500118"</item>
+        <item>"63371500117"</item>
+        <item>"63371500116"</item>
+        <item>"63371500115"</item>
+        <item>"63371500114"</item>
+        <item>"63371500113"</item>
+        <item>"63371500112"</item>
+        <item>"63371500111"</item>
+        <item>"63371500110"</item>
+        <item>"63371500109"</item>
+        <item>"63371500108"</item>
+        <item>"63371500107"</item>
+        <item>"63371500106"</item>
+        <item>"63371500105"</item>
+        <item>"63371500104"</item>
+        <item>"63371500103"</item>
+        <item>"63371500102"</item>
+        <item>"63371500101"</item>
+        <item>"63371500100"</item>
+        <item>"63371500099"</item>
+        <item>"63371500098"</item>
+        <item>"63371500097"</item>
+        <item>"63371500096"</item>
+        <item>"63371500095"</item>
+        <item>"63371500094"</item>
+        <item>"63371500093"</item>
+        <item>"63371500092"</item>
+        <item>"63371500091"</item>
+        <item>"63371500090"</item>
+        <item>"63371500089"</item>
+        <item>"63371500088"</item>
+        <item>"63371500087"</item>
+        <item>"63371500086"</item>
+        <item>"63371500085"</item>
+        <item>"63371500084"</item>
+        <item>"63371500083"</item>
+        <item>"63371500082"</item>
+        <item>"63371500019"</item>
+        <item>"63371500018"</item>
+        <item>"63371500017"</item>
+        <item>"63371500016"</item>
+        <item>"63371500015"</item>
+        <item>"63371500014"</item>
+        <item>"63371500013"</item>
+        <item>"63371500012"</item>
+        <item>"63371500011"</item>
+        <item>"63371500010"</item>
+
 
     </string-array>
 
     <string-array name="music_name">
-        <item>"每一天都期待 "</item>
-        <item>"剪不断的纠缠 "</item>
-        <item>"改变不了 "</item>
-        <item>"当初第一眼 "</item>
-        <item>"思念变成信念 "</item>
-        <item>"爱还会不会重来 "</item>
-        <item>"褪色 "</item>
-        <item>"续写前缘 "</item>
-        <item>"纯真的笑脸 "</item>
-        <item>"在身边的瞬间 "</item>
-        <item>"消失的爱恋 "</item>
-        <item>"只有你心疼我 "</item>
-        <item>"缘分这东西 "</item>
-        <item>"一丝孤寂 "</item>
-        <item>"不该相遇 "</item>
-        <item>"相爱不容易 "</item>
+        <item>"点点蔓延 "</item>
+        <item>"痴心随风散 "</item>
+        <item>"三个人的情歌 "</item>
+        <item>"我一定会愿意 "</item>
+        <item>"分得太清楚 "</item>
+        <item>"闭眼不能愈合 "</item>
+        <item>"承诺没把握 "</item>
+        <item>"不合拍 "</item>
+        <item>"不再为你忧愁 "</item>
+        <item>"分开不绝望 "</item>
+        <item>"吉他的怀抱 "</item>
+        <item>"儿时的回忆 "</item>
+        <item>"相思之歌 "</item>
+        <item>"不要再回来 "</item>
+        <item>"孩子一样发呆 "</item>
+        <item>"赖床进行曲 "</item>
+        <item>"谁能给我回答 "</item>
+        <item>"鼓起勇气 "</item>
+        <item>"守在春风里 "</item>
+        <item>"古韵恋曲 "</item>
+        <item>"是否一样 "</item>
+        <item>"希望有人懂 "</item>
+        <item>"是谁的短信 "</item>
+        <item>"时至今日 "</item>
+        <item>"多久没为你演奏 "</item>
+        <item>"没伤害的爱情 "</item>
+        <item>"你们要幸福 "</item>
+        <item>"女人多不容易 "</item>
         <item>"情难自禁 "</item>
-        <item>"等奇迹 "</item>
-        <item>"角落里的我 "</item>
-        <item>"剥开我的心 "</item>
-        <item>"暧昧的空气 "</item>
-        <item>"配角戏 "</item>
-        <item>"专属剧情 "</item>
-        <item>"熟悉的声音 "</item>
-        <item>"摆脱你 "</item>
-        <item>"这样爱着你 "</item>
-        <item>"绝望 "</item>
-        <item>"最美的邂逅 "</item>
-        <item>"别在诉说 "</item>
-        <item>"别人的印记 "</item>
-        <item>"被遗弃的道理 "</item>
-        <item>"你的吻 "</item>
-        <item>"爱上我是一个错 "</item>
-        <item>"天长地久到白头 "</item>
-        <item>"你能否感受 "</item>
-        <item>"假装很冷静 "</item>
-        <item>"弄错了 "</item>
-        <item>"家的城堡 "</item>
-        <item>"真的看不到 "</item>
-        <item>"身旁的空气 "</item>
-        <item>"可爱味道 "</item>
-        <item>"搞笑的相遇 "</item>
-        <item>"你说不够 "</item>
-        <item>"小怪兽 "</item>
-        <item>"回到小小星球 "</item>
-        <item>"温柔伤口 "</item>
-        <item>"清醒的时候 "</item>
-        <item>"失去自己 "</item>
-        <item>"还有伤悲 "</item>
-        <item>"年轻的忐忑 "</item>
-        <item>"温暖 "</item>
-        <item>"想不起 "</item>
-        <item>"我或你 "</item>
-        <item>"每天去想你 "</item>
-        <item>"如此短暂 "</item>
-        <item>"思念的眼泪 "</item>
-        <item>"失去了看不见 "</item>
-        <item>"只是梦一场 "</item>
-        <item>"你的温热 "</item>
-        <item>"简单的情歌 "</item>
-        <item>"我会给你怀抱 "</item>
-        <item>"难捱的离骚 "</item>
-        <item>"交错的城堡 "</item>
-        <item>"脆弱时候 "</item>
-        <item>"一颗心没着落 "</item>
-        <item>"依然会心疼我 "</item>
-        <item>"依然温柔 "</item>
-        <item>"会不会相信我 "</item>
-        <item>"等到夜深 "</item>
-        <item>"无悔付出 "</item>
-        <item>"最好永远天真 "</item>
-        <item>"在乎你的梦 "</item>
-        <item>"羡慕眼光 "</item>
-        <item>"放我在心上 "</item>
-        <item>"最疯狂 "</item>
-        <item>"最后的倔强 "</item>
-        <item>"疯狂的骄傲 "</item>
-        <item>"如果快乐 "</item>
-        <item>"那样的回忆 "</item>
-        <item>"品尝寂寞的味道 "</item>
-        <item>"为了你祈祷 "</item>
-        <item>"感动的泪 "</item>
-        <item>"换一个吻 "</item>
-        <item>"梦醒后 "</item>
-        <item>"残留的吻 "</item>
-        <item>"爱的沉沦 "</item>
-        <item>"决定 "</item>
+        <item>"我们的恋曲 "</item>
+        <item>"心的弦 "</item>
+        <item>"绽放的回忆 "</item>
+        <item>"寂寞夜里落泪 "</item>
+        <item>"寂寞滋味 "</item>
+        <item>"爱不是种占有 "</item>
+        <item>"你住在我心中鲜花盛开的地方"</item>
+        <item>"她的梦 "</item>
+        <item>"黎明的屋顶 "</item>
+        <item>"深秋的摸样 "</item>
+        <item>"时光如梭 "</item>
+        <item>"那道城门(吕剧) "</item>
+        <item>"谁说媳妇好(吕剧) "</item>
+        <item>"我与你痛诉衷肠(晋剧) "</item>
+        <item>"威震华夷(晋剧) "</item>
+        <item>"爵禄官高(京剧) "</item>
+        <item>"是非难辨(京剧) "</item>
+        <item>"早早回头(京剧) "</item>
+        <item>"改学好人(京剧) "</item>
+        <item>"受苦亲娘(京剧) "</item>
+        <item>"不孝的儿啊(京剧) "</item>
 
     </string-array>
 
     <string-array name="music_author">
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"吕鑫 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"尹歌 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
-        <item>"陈佳利 "</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"陈伊轩"</item>
+        <item>"陈伊轩"</item>
+        <item>"陈伊轩"</item>
+        <item>"陈伊轩"</item>
+        <item>"陈伊轩"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"翟羽佳"</item>
+        <item>"杜文佳"</item>
+        <item>"杜文佳"</item>
+        <item>"杜文佳"</item>
+        <item>"杜文佳"</item>
+        <item>"杜文佳"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"金升延"</item>
+        <item>"陈伊轩"</item>
+        <item>"陈伊轩"</item>
+        <item>"陈伊轩"</item>
+        <item>"翟羽佳"</item>
+        <item>"王明  "</item>
+        <item>"王明  "</item>
+        <item>"王明  "</item>
+        <item>"王明  "</item>
+        <item>"冯春辉"</item>
+        <item>"冯春辉"</item>
+        <item>"方建  "</item>
+        <item>"方建  "</item>
+        <item>"于富军"</item>
+        <item>"于富军"</item>
+        <item>"于富军"</item>
+        <item>"于富军"</item>
+        <item>"米惠茹"</item>
+        <item>"米惠茹"</item>
     </string-array>
 </resources>
