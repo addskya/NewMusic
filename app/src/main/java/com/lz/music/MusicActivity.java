@@ -1,10 +1,19 @@
 
 package com.lz.music;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.MailTo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -14,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cmsc.cmmusic.init.InitCmmInterface;
 import com.lz.music.kuyuehui.R;
@@ -21,10 +31,15 @@ import com.lz.music.player.MusicPlayer;
 import com.lz.music.player.PlayerResponser;
 import com.lz.music.ui.MusicPagerAdapter;
 import com.lz.music.ui.MusicPlayerPanel;
+import com.lz.music.ui.PermissionsDialog;
 import com.lz.music.ui.SearchActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MusicActivity extends FragmentActivity {
     private ViewPager mPager;
+    private static final int REQUEST_CODE_PERMISSION = 0x10;
 
     private static final int PAGE_VIP = 0;
     private static final int PAGE_RECOMMEND = 1;
@@ -45,6 +60,7 @@ public class MusicActivity extends FragmentActivity {
 
         InitCmmInterface.initSDK(this);
         init();
+        handlePermissions();
     }
 
     private void init() {
@@ -115,14 +131,14 @@ public class MusicActivity extends FragmentActivity {
         }
     }
 
-    private void prepareIndicator(){
+    private void prepareIndicator() {
         mIndicator.setVisibility(View.VISIBLE);
         int screenWidth = getResources().getDisplayMetrics().widthPixels;
         ViewGroup.LayoutParams params = mIndicator.getLayoutParams();
-        params.width = (screenWidth - 8 * 20 ) / 4;
+        params.width = (screenWidth - 8 * 20) / 4;
         mIndicator.setLayoutParams(params);
         ViewGroup.MarginLayoutParams margin = (ViewGroup.MarginLayoutParams) params;
-        margin.leftMargin = (screenWidth - params.width * 4 ) / 8;
+        margin.leftMargin = (screenWidth - params.width * 4) / 8;
     }
 
     @Override
@@ -156,4 +172,99 @@ public class MusicActivity extends FragmentActivity {
             mIndicator.setTranslationX((position + positionOffset) * offset);
         }
     };
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private void handlePermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            String[] permissions = {
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_CONTACTS,
+                    Manifest.permission.READ_PHONE_STATE,
+                    Manifest.permission.SEND_SMS,
+                    Manifest.permission.WRITE_SETTINGS,
+            };
+            requestPermissions(permissions, REQUEST_CODE_PERMISSION);
+        } else {
+            showPermissionDialog();
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions,
+                                           int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        handlePermissionsResult(permissions, grantResults);
+    }
+
+    private void handlePermissionsResult(String[] permissions,
+                                         int[] grantResults) {
+        final int requestPermissionLength = permissions.length;
+        List<String> requestFailurePermissionsList = new ArrayList<String>(1);
+        for (int index = 0; index < requestPermissionLength; index++) {
+            String permission = permissions[index];
+            boolean isPermissionGranted = grantResults[index] == PackageManager.PERMISSION_GRANTED;
+            if (!isPermissionGranted) {
+                requestFailurePermissionsList.add(permission);
+            }
+        }
+        if (requestFailurePermissionsList.size() > 0) {
+            String[] requestFailurePermissions = new String[requestFailurePermissionsList.size()];
+            requestFailurePermissionsList.toArray(requestFailurePermissions);
+            handleRequestPermissionsFailure(requestFailurePermissions);
+        }
+    }
+
+    /**
+     * handle permissions request failure
+     *
+     * @param requestFailurePermissions the request failure permissions
+     */
+    private void handleRequestPermissionsFailure(String[] requestFailurePermissions) {
+        onRequestPermissionsFailure(requestFailurePermissions);
+    }
+
+    /**
+     * Call Back when the specified permission request failure
+     *
+     * @param requestFailurePermissions the request permissions
+     */
+    protected void onRequestPermissionsFailure(String[] requestFailurePermissions) {
+        Toast.makeText(this, "权限请求失败,部分功能可能无法正常使用.", Toast.LENGTH_SHORT).show();
+    }
+
+    private void showPermissionDialog() {
+        final SharedPreferences sp = getSharedPreferences("music_pref", Context.MODE_PRIVATE);
+        if (sp.getBoolean("permissions_tips", false)) {
+            return;
+        }
+
+        AlertDialog dialog = new AlertDialog.Builder(this, R.style.AlertDialogTheme)
+                .setTitle(R.string.text_permission)
+                .setMessage(R.string.text_request_permissions)
+                .setPositiveButton(R.string.text_agree,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sp.edit().putBoolean("permissions_allow", true)
+                                        .putBoolean("permissions_tips", true)
+                                        .apply();
+
+                            }
+                        })
+                .setNegativeButton(R.string.text_forbid,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                sp.edit().putBoolean("permissions_allow", false)
+                                        .putBoolean("permissions_tips", false)
+                                        .apply();
+                            }
+                        })
+                .setCancelable(false)
+                .create();
+        dialog.show();
+
+    }
 }

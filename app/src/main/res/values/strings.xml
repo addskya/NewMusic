@@ -56,4 +56,10 @@
     <string name="text_ok">"确定"</string>
     <string name="text_cancel">"取消"</string>
 
+    <string name="text_permission">"权限请求"</string>
+    <string name="text_agree">"同意"</string>
+    <string name="text_forbid">"拒绝"</string>
+
+    <string name="text_request_permissions">"应用程序需要以下权限:\n1.读写存储卡\n2.读取联系人\n3.读取手机状态\n4.发送短信\n5.读写设置"</string>
+
 </resources>
